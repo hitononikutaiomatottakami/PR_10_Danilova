@@ -5,8 +5,8 @@ jobs:
     runs-on: windows-latest
     steps:
       -name: Checkout
-      uses: actions/checkout@v4.7.2
+       uses: actions/checkout@v4.7.2
 
 
       -name: Run application
-      run: dotnet run 
+       run: dotnet run 
