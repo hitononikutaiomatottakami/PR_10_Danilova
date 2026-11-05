@@ -2,11 +2,11 @@ name: MyActions
 on: push
 jobs:
   My Build:
-  runs-on: windows-latest
-  steps:
-        -name: Checkout
-        uses: actions/checkout@v4.7.2
+    runs-on: windows-latest
+    steps:
+      -name: Checkout
+      uses: actions/checkout@v4.7.2
 
 
-        -name: Run application
-        run: dotnet run 
+      -name: Run application
+      run: dotnet run 
