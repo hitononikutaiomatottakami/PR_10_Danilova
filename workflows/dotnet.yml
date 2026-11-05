@@ -1,0 +1,23 @@
+name: .NET Framework Application
+
+on: push: branches: [ "main" ] workflow_dispatch:
+
+jobs: build: runs-on: windows-latest
+
+steps:
+
+- name: Checkout repository
+
+  uses: actions/checkout@v4
+
+
+
+- name: Setup MSBuild
+
+  uses: microsoft/setup-msbuild@v2
+
+
+
+- name: Build application
+
+  run: msbuild ПР10.slnx /p:Configuration=Release
