@@ -1,12 +1,28 @@
-name: MyActions
-on: push
+name: .NET
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
 jobs:
-  My Build:
-    runs-on: windows-latest
+  build:
+    runs-on: ubuntu-latest
+
     steps:
-      -name: Checkout
-       uses: actions/checkout@v4.7.2
+    - uses: actions/checkout@v4
 
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '4.7.2' # Укажите нужную версию .NET (например, 6.0.x, 7.0.x, 8.0.x)
 
-      -name: Run application
-      run: dotnet run
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --no-restore
+
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
